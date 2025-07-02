@@ -1,4 +1,4 @@
-import { BlocksRenderer } from "@strapi/blocks-react-renderer";
+"use server";
 import React from "react";
 import Markdown from "react-markdown";
 const Page = async ({ params }) => {
