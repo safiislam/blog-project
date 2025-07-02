@@ -7,6 +7,9 @@ export default async function Home() {
     cache: "no-cache",
   });
   const data = await res.json();
+  if (data.length == 0) {
+    return <div>No Blog Found</div>;
+  }
   return (
     <div className="p-8">
       <p className="text-xl text-center">Blogs</p>
