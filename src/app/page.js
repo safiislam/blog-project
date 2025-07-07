@@ -10,7 +10,9 @@ export default function Home() {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await fetch("http://localhost:1337/api/blogs?populate=*");
+        const res = await fetch(
+          "https://dogs-strapi.ryzan.co/api/blogs?populate=*"
+        );
         const data = await res.json();
         setBlogs(data?.data || []);
       } catch (error) {
@@ -41,7 +43,7 @@ export default function Home() {
             >
               {i?.image?.url && (
                 <img
-                  src={`http://localhost:1337${i?.image?.url}`}
+                  src={`https://dogs-strapi.ryzan.co${i?.image?.url}`}
                   alt={i.title}
                   className="w-full h-40 object-cover rounded"
                 />

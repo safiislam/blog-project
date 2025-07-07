@@ -16,7 +16,7 @@ export default function BlogPage() {
       try {
         setLoading(true);
         const res = await fetch(
-          `http://localhost:1337/api/blogs?filters[slug][$eq]=${params?.slug}&populate=*`
+          `https://dogs-strapi.ryzan.co/api/blogs?filters[slug][$eq]=${params?.slug}&populate=*`
         );
 
         if (!res.ok) throw new Error("Failed to fetch blog");
@@ -32,7 +32,6 @@ export default function BlogPage() {
 
     if (params?.slug) fetchData();
   }, [params?.slug]);
-  console.log(blogData);
 
   if (loading) return <LoadingSkeleton />;
   if (error) return <ErrorDisplay error={error} />;
@@ -44,7 +43,7 @@ export default function BlogPage() {
       {blogData.image && (
         <div className="overflow-hidden rounded-xl shadow-lg">
           <img
-            src={`http://localhost:1337${blogData.image.url}`}
+            src={`https://dogs-strapi.ryzan.co${blogData.image.url}`}
             alt={blogData.title || "Blog image"}
             className="w-full h-auto max-h-[400px] object-cover"
           />
